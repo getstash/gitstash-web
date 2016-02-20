@@ -1,5 +1,5 @@
 $('.js-switch').bootstrapSwitch();
 
-$("#rowSelectAll").click(function () {
+$("#select-all").click(function () {
     $(".js-switch").prop('checked', $(this).prop('checked'));
 });
