@@ -2,6 +2,7 @@
 
 import log from 'cuvva-log';
 import Octonode from 'octonode';
+import JsonClient from 'json-client-node';
 import App from '../app';
 import Storage from '../lib/storage';
 
