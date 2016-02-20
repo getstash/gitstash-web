@@ -1,19 +1,22 @@
+
 <h1>blah</h1>
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		{{#each repos}}
+<div class="table responsive">
+	<table class="table table-hover">
+		<thead>
 			<tr>
-				<td>{{full_name}}</td>
-				<td>{{description}}</td>
+				<th>Name</th>
+				<th>Description</th>
 			</tr>
-		{{/each}}
-	</tbody>
-</table>
+		</thead>
+
+		<tbody>
+			{{#each repos}}
+				<tr>
+					<td>{{full_name}}</td>
+					<td>{{description}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
