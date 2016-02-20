@@ -1,1 +1,19 @@
 <h1>blah</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each repos}}
+			<tr>
+				<td>{{full_name}}</td>
+				<td>{{description}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
