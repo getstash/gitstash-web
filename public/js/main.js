@@ -12,6 +12,7 @@ $(document).ready(function() {
 			}
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', enabled, enabled);
 		});
+		console.log(allOn);
 		if (allOn) {
 			$('#select-all').bootstrapSwitch('state', true, true);
 		}
