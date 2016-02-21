@@ -6,7 +6,17 @@ import handlers from './handlers';
 const app = express();
 export default app;
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs({
+	defaultLayout: 'main',
+	helpers: {
+		for: function(from, to, incr, block) {
+			    var accum = '';
+			    for(var i = from; i < to; i += incr)
+			        accum += block.fn(i);
+			    return accum;
+			}
+	}
+}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
