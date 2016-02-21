@@ -17,7 +17,7 @@
 						<tr>
 							<td>{{full_name}}</td>
 							<td>{{description}}</td>
-							<td><input type="checkbox" name="my-checkbox" class="js-switch"></td>
+							<td><input type="checkbox" name="my-checkbox" class="js-switch" data-github-id="{{id}}" /></td>
 						</tr>
 					{{/each}}
 				</tbody>
@@ -26,25 +26,24 @@
 		<div>
 			<nav>
 				<ul class="pagination">
-
-					{{#if notFirstPage }}
-					<li>
-						<a href="?page={{prevPage}}" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
+					{{#if notFirstPage}}
+						<li>
+							<a href="?page={{prevPage}}" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
 					{{/if}}
 
 					{{#for 1 maxPage 1}}
-					<li><a href="?page={{this}}">{{this}}</a></li>
+						<li><a href="?page={{this}}">{{this}}</a></li>
 					{{/for}}
 
-					{{# if notLastPage }}
-					<li>
-						<a href="?page={{nextPage}}" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
+					{{# if notLastPage}}
+						<li>
+							<a href="?page={{nextPage}}" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
 					{{/if}}
 				</ul>
 			</nav>

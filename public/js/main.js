@@ -6,5 +6,14 @@ $('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 	    $(".js-switch").bootstrapSwitch('state', state, state);
 	} else {
 		console.log("Make an AJAX request.");
+
+
+		var github_id = $(this).attr('data-github-id');
+
+		$.post('http://gitstash.dfl.mn/repositories', {
+			'github_id' : github_id } )
+			.done(function() {
+			    console.log("ID sent");
+		});
 	}
 });
