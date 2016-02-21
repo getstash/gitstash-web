@@ -5,13 +5,17 @@ $('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 	    console.log("You changed them ALL.");
 	    $(".js-switch").bootstrapSwitch('state', state, state);
 
+
 	    $(".js-switch").each(function() {
+	    	console.log("In");
+	    	var github_id = $(this).attr('data-github-id');
+	    	console.log(github_id);
 	    	$.post('https://gitstash.dfl.mn/repositories', {
-			'github_id' : github_id, 'enabled' : state} )
-			.done(function(data) {
-			    console.log(data);
+				'github_id' : github_id, 'enabled' : state} )
+				.done(function(data) {
+			    	console.log(data);
 			});
-	    }
+	    })
 	} else {
 		console.log("Make an AJAX request.");
 
