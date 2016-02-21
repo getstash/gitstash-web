@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	$('.js-switch').bootstrapSwitch();
 
+	// This bit works. Don't touch it.
 	$.get('https://gitstash.dfl.mn/repositories', function(data) {
 		data.forEach(function(item) {
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', item.enabled, item.enabled);
@@ -11,15 +12,15 @@ $(document).ready(function() {
 
 	$('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 		if($(this).attr('id') == 'select-all') {
-		    console.log("You changed them ALL.");
 		    $(".js-switch").bootstrapSwitch('state', state, state);
 
-		    $(".js-switch").each(function() {
+		    $(".js-switch:not(#select-all)").each(function() {
 
 		    	var github_id = $(this).attr('data-github-id');
+		    	var new_state = state ? 'true' : 'false';
 
 		    	$.post('https://gitstash.dfl.mn/repositories', {
-					'github_id' : github_id, 'enabled' : state} )
+					'github_id' : github_id, 'enabled' : new_state} )
 					.done(function(data) {
 				    	console.log(data);
 				});
@@ -27,9 +28,10 @@ $(document).ready(function() {
 		} else {
 
 			var github_id = $(this).attr('data-github-id');
+			var new_state = state ? 'true' : 'false';
 
 			$.post('https://gitstash.dfl.mn/repositories', {
-				'github_id' : github_id, 'enabled' : state} )
+				'github_id' : github_id, 'enabled' : new_state} )
 				.done(function(data) {
 				    console.log(data);
 			});
