@@ -11,7 +11,7 @@ $('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 			.done(function(data) {
 			    console.log(data);
 			});
-	    }
+	    })
 	} else {
 		console.log("Make an AJAX request.");
 
