@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 		var anyOff = false;
 
-		$('tbody .js-switch').forEach(function (el) {
+		$('tbody .js-switch').each(function (el) {
 			if (!$(el).bootstrapSwitch('state'))
 				anyOff = true;
 		});

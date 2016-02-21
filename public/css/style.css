@@ -1,5 +1,5 @@
 body {
-	padding-top:50px;
+	padding-top:30px;
 }
 
 #page-container {
@@ -23,7 +23,7 @@ body {
 }
 
 .pagination .pageSelect {
-	height: 50px;
-	width: 50px;
-	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
 }
