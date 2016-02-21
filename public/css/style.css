@@ -14,3 +14,7 @@
 	background-color: #5cb85c;
 }
 
+.pagination .pageSelect {
+	height: 50px;
+	width: 50px;
+}
