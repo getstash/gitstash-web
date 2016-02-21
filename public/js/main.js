@@ -1,41 +1,39 @@
 $(document).ready(function() {
 
+	$('.js-switch').bootstrapSwitch();
+
 	$.get('https://gitstash.dfl.mn/repositories', function(data) {
 		data.forEach(function(item) {
-			console.log(item);
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', item.enabled, item.enabled);
 		});
 	});
 
-});
 
-$('.js-switch').bootstrapSwitch();
+	$('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
+		if($(this).attr('id') == 'select-all') {
+		    console.log("You changed them ALL.");
+		    $(".js-switch").bootstrapSwitch('state', state, state);
 
-$('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
-	if($(this).attr('id') == 'select-all') {
-	    console.log("You changed them ALL.");
-	    $(".js-switch").bootstrapSwitch('state', state, state);
+		    $(".js-switch").each(function() {
 
-	    $(".js-switch").each(function() {
+		    	var github_id = $(this).attr('data-github-id');
 
-	    	var github_id = $(this).attr('data-github-id');
+		    	$.post('https://gitstash.dfl.mn/repositories', {
+					'github_id' : github_id, 'enabled' : state} )
+					.done(function(data) {
+				    	console.log(data);
+				});
+		    })
+		} else {
 
-	    	$.post('https://gitstash.dfl.mn/repositories', {
+			var github_id = $(this).attr('data-github-id');
+
+			$.post('https://gitstash.dfl.mn/repositories', {
 				'github_id' : github_id, 'enabled' : state} )
 				.done(function(data) {
-			    	console.log(data);
+				    console.log(data);
 			});
-	    })
-	} else {
-		console.log("Make an AJAX request.");
+		}
+	});
 
-
-		var github_id = $(this).attr('data-github-id');
-
-		$.post('https://gitstash.dfl.mn/repositories', {
-			'github_id' : github_id, 'enabled' : state} )
-			.done(function(data) {
-			    console.log(data);
-		});
-	}
 });
