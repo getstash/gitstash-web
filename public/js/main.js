@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    $('#repo-table').DataTable();
-} );
-
 $('.js-switch').bootstrapSwitch();
 
 $("#select-all").click(function () {
