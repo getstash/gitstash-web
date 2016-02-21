@@ -6,5 +6,8 @@ $('.js-switch').bootstrapSwitch();
 
 $("#select-all").click(function () {
     $(".js-switch").prop('checked', $(this).prop('checked'));
-    $(".js-switch").setState($(this).state());
 });
+    
+$("#select-all").onclick=function () {
+    $(".js-switch").setState($("#select-all").state());
+};
