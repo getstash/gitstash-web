@@ -1,7 +1,8 @@
 $('.js-switch').bootstrapSwitch();
 
-$('#select-all').on('switchChange.bootstrapSwitch', function (a,b) {
+$('#select-all').on('switchChange.bootstrapSwitch', function(event, state) {
     console.log("u changed it");
+    $(".js-switch").bootstrapSwitch('state', true, true);
 });
 
 /*$("#select-all").click(function () {
