@@ -1,13 +1,11 @@
 $('.js-switch').bootstrapSwitch();
 
-$('#select-all').on('switchChange.bootstrapSwitch', function(event, state) {
-    console.log("u changed it");
-    $(".js-switch").bootstrapSwitch('state', state, state);
-});
+$('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
+	if($(this).attr('id') == 'select-all') {
+	    console.log("u changed it");
+	    $(".js-switch").bootstrapSwitch('state', state, state);
+	} else {
+		console.log("make req");
+	}
 
-/*$("#select-all").click(function () {
-    $(".js-switch").prop('checked', $(this).prop('checked'));
-<<<<<<< HEAD
-    $(".js-switch").setState($(this).state());
-});*/
-    //$(".js-switch").setState($(this).state());
+});
