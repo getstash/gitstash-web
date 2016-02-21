@@ -21,6 +21,7 @@ router.get('/', async function (req, res) {
 		return;
 	}
 
+	console.log(info);
 	res.render('home', {
 		repos: repos.slice((page - 1) * itemsPerPage, page * itemsPerPage),
 		user: info,
