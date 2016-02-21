@@ -14,7 +14,7 @@ router.get('/', async function (req, res) {
 	const client = Octonode.client(req.auth.githubToken);
 	const [repos] = await Q.ninvoke(client.me(), 'repos');
 
-	if (page * itemsPerPage > repos.length) {
+	if ((page - 1) * itemsPerPage > repos.length) {
 		res.sendStatus(404);
 		return;
 	}
