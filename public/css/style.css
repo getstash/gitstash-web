@@ -1,13 +1,9 @@
-.body {
-	padding-top:30px;
+body {
+	padding-top:50px;
 }
 
 #page-container {
 	padding-top: 50px;
-}
-
-.container {
-	padding-top:50px;
 }
 
 .navbar-wrapper {
