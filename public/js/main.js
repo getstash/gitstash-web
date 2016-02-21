@@ -4,7 +4,7 @@ $('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 	if($(this).attr('id') == 'select-all') {
 	    console.log("You changed them ALL.");
 	    $(".js-switch").bootstrapSwitch('state', state, state);
-	} else {
+	} 
 		console.log("Make an AJAX request.");
 
 
@@ -15,5 +15,4 @@ $('.js-switch').on('switchChange.bootstrapSwitch', function(event, state) {
 			.done(function(data) {
 			    console.log(data);
 		});
-	}
 });
