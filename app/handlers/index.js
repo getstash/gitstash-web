@@ -15,7 +15,7 @@ router.get('/', async function (req, res) {
 	const [repos] = await Q.ninvoke(client.me(), 'repos');
 
 	if (page * itemsPerPage > repos.length) {
-		res.status(404);
+		res.sendStatus(404);
 		return;
 	}
 
