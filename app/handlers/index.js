@@ -12,7 +12,9 @@ router.get('/', async function (req, res) {
 	const itemsPerPage = 10;
 
 	const client = Octonode.client(req.auth.githubToken);
-	const [repos] = await Q.ninvoke(client.me(), 'repos');
+	const ghme = client.me();
+	const [info] = await Q.ninvoke(ghme, 'info');
+	const [repos] = await Q.ninvoke(ghme, 'repos');
 
 	if ((page - 1) * itemsPerPage > repos.length) {
 		res.sendStatus(404);
@@ -21,6 +23,7 @@ router.get('/', async function (req, res) {
 
 	res.render('home', {
 		repos: repos.slice((page - 1) * itemsPerPage, page * itemsPerPage),
+		user: info,
 		maxPage: Math.ceil(repos.length / itemsPerPage) + 1,
 		notLastPage: page != Math.ceil(repos.length / itemsPerPage),
 		notFirstPage: page != 1,
