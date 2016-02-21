@@ -6,5 +6,7 @@ $('#select-all').on('switch-change', function () {
 
 /*$("#select-all").click(function () {
     $(".js-switch").prop('checked', $(this).prop('checked'));
+<<<<<<< HEAD
     $(".js-switch").setState($(this).state());
 });*/
+    //$(".js-switch").setState($(this).state());
