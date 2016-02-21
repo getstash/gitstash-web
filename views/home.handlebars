@@ -4,20 +4,20 @@
 
 		<div class="table responsive">
 			<table id="repo-table" class="table table-hover">
-				<thead>
+				<thead class='table-header'>
 					<tr>
 						<th>Name</th>
 						<th>Description</th>
-						<th><input type="checkbox" name="my-checkbox" class="js-switch" id="select-all"></th>
+						<th><input type="checkbox" name="my-checkbox" class="js-switch bootstrap-switch-success" id="select-all"></th>
 					</tr>
 				</thead>
 
 				<tbody>
 					{{#each repos}}
 						<tr>
-							<td class="table-header" >{{full_name}}</td>
-							<td class="table-header">{{description}}</td>
-							<td><input type="checkbox" name="my-checkbox" class="js-switch table-header" data-github-id="{{id}}" /></td>
+							<td>{{full_name}}</td>
+							<td>{{description}}</td>
+							<td><input type="checkbox" name="my-checkbox" class="js-switch" data-github-id="{{id}}" /></td>
 						</tr>
 					{{/each}}
 				</tbody>
