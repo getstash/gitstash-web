@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var allOn = true;
 		data.forEach(function(item) {
 			var enabled = (item.enabled == 1) ? true : false;
-			if (enabled == false) {
+			if (enabled) {
 				console.log(enabled);
 				allOn = false;
 			}
