@@ -7,7 +7,8 @@ $(document).ready(function() {
 		var allOn = true;
 		data.forEach(function(item) {
 			var enabled = (item.enabled == 1) ? true : false;
-			if (!enabled) {
+			if (enabled == false) {
+				console.log(enabled);
 				allOn = false;
 			}
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', enabled, enabled);
