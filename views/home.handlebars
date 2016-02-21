@@ -1,52 +1,53 @@
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
    		<h1>My Gitstash Repositories</h1>
-
-		<div class="table responsive">
-			<table id="repo-table" class="table table-hover">
-				<thead class='table-header'>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th><input type="checkbox" name="my-checkbox" class="js-switch bootstrap-switch-success" id="select-all"></th>
-					</tr>
-				</thead>
-
-				<tbody>
-					{{#each repos}}
+   		<div class="table-container">
+			<div class="table responsive">
+				<table id="repo-table" class="table table-hover">
+					<thead class='table-header'>
 						<tr>
-							<td>{{full_name}}</td>
-							<td>{{description}}</td>
-							<td><input type="checkbox" name="my-checkbox" class="js-switch" data-github-id="{{id}}" /></td>
+							<th>Name</th>
+							<th>Description</th>
+							<th><input type="checkbox" name="my-checkbox" class="js-switch bootstrap-switch-small" id="select-all"></th>
 						</tr>
-					{{/each}}
-				</tbody>
-			</table>
-		</div>
-		<div class="text-center">
-			<nav>
-				<ul class="pagination" >
-					{{#if notFirstPage}}
-						<li>
-							<a href="?page={{prevPage}}" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-							</a>
-						</li>
-					{{/if}}
+					</thead>
 
-					{{#for 1 maxPage 1}}
-						<li><a href="?page={{this}}">{{this}}</a></li>
-					{{/for}}
+					<tbody>
+						{{#each repos}}
+							<tr>
+								<td>{{full_name}}</td>
+								<td>{{description}}</td>
+								<td><input type="checkbox" name="my-checkbox" class="js-switch bootstrap-switch-small" data-github-id="{{id}}" /></td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+			<div class="text-center">
+				<nav>
+					<ul class="pagination" >
+						{{#if notFirstPage}}
+							<li>
+								<a href="?page={{prevPage}}" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+						{{/if}}
 
-					{{# if notLastPage}}
-						<li>
-							<a href="?page={{nextPage}}" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span>
-							</a>
-						</li>
-					{{/if}}
-				</ul>
-			</nav>
+						{{#for 1 maxPage 1}}
+							<li><a href="?page={{this}}">{{this}}</a></li>
+						{{/for}}
+
+						{{# if notLastPage}}
+							<li>
+								<a href="?page={{nextPage}}" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						{{/if}}
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</div>
 </div>
