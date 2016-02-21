@@ -17,15 +17,15 @@
 						<tr>
 							<td>{{full_name}}</td>
 							<td>{{description}}</td>
-							<td><input type="checkbox" name="my-checkbox" class="js-switch" data-github-id="{{id}}" /></td>
+							<td><input type="checkbox" name="my-checkbox" class="js-switch bootstrap-switch-small" data-github-id="{{id}}" /></td>
 						</tr>
 					{{/each}}
 				</tbody>
 			</table>
 		</div>
-		<div>
+		<div class="text-center">
 			<nav>
-				<ul class="pagination">
+				<ul class="pagination" >
 					{{#if notFirstPage}}
 						<li>
 							<a href="?page={{prevPage}}" aria-label="Previous">
