@@ -5,6 +5,7 @@ $(document).ready(function() {
 	// This bit works. Don't touch it.
 	$.get('https://gitstash.dfl.mn/repositories', function(data) {
 		data.forEach(function(item) {
+			var enabled = (item.enabled == 1) ? true : false;
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', item.enabled, item.enabled);
 		});
 	});
