@@ -4,10 +4,17 @@ $(document).ready(function() {
 
 	// This bit works. Don't touch it.
 	$.get('https://gitstash.dfl.mn/repositories', function(data) {
+		var allOn = true;
 		data.forEach(function(item) {
 			var enabled = (item.enabled == 1) ? true : false;
+			if (!enabled) {
+				allOn = false;
+			}
 			$('[data-github-id="' + item.github_id + '"]').bootstrapSwitch('state', enabled, enabled);
 		});
+		if (allOn) {
+			$('#select-all').bootstrapSwitch('state', true, true);
+		}
 	});
 
 
