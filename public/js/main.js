@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 		    $(".js-switch:not(#select-all)").each(function() {
 
-		    	var github_id = $(this).attr('data-github-id');
+		    	var github_id = 'gh:' + $(this).attr('data-github-id');
 		    	var new_state = state ? 'true' : 'false';
 
 		    	$.post('https://gitstash.dfl.mn/repositories', {
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		    })
 		} else {
 
-			var github_id = $(this).attr('data-github-id');
+			var github_id = 'gh:' + $(this).attr('data-github-id');
 			var new_state = state ? 'true' : 'false';
 
 			$.post('https://gitstash.dfl.mn/repositories', {
